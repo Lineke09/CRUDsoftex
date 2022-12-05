@@ -1,0 +1,35 @@
+package com.example.demo;
+import express from "express";
+import routes from './routes';
+
+const app = express();
+
+app.post('/', (request, response))=>{
+    try{
+        const aluno = await Aluno.creat(al.body);
+
+        return resizeBy.send({aluno});
+
+    } catch (err) {
+        return resizeBy.status(404).send({error: "erro na criação do novo aluno"});
+    }
+
+}
+app.get('/alunos/:id',(request, response)=>{
+    try{
+        resizeBy.send({user: request.userid});
+    } catch (err) {
+        return resizeBy.status(480). send({ error: 'erro em achar o aluno'})
+    }
+});
+
+
+app.put('/alunos/:id', ('req,res')=>{
+    Aluno.update(req.params.id);
+});
+
+app.delete('/alunos/:id', (req, res)=>{
+    Project.findByAndRemove(req.params.projectId);
+
+    return res.status(204);
+})
